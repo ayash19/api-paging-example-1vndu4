@@ -1,0 +1,16 @@
+Articles:
+<form>
+  <input type="text" placeholder="Search..." [formControl]="searchInput">
+</form>
+
+<mat-list>
+  <mat-list-item *ngFor="let article of articles">
+    <a [href]="article.url" target="_blank">{{article.title}}</a>
+  </mat-list-item>
+</mat-list>
+<mat-paginator
+  [length]="totalHits"
+  [pageSize]="20"
+  [pageIndex]="page"
+  (page)="changePage($event)"
+></mat-paginator>
